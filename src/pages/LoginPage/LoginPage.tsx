@@ -1,9 +1,11 @@
+import LoginForm from "../../components/LoginForm/LoginForm";
+
 const LoginPage: React.FC = () => {
   return (
     <>
       <h1>Hello SuperPuper!</h1>
-      console.log(omg);
+      <LoginForm />
     </>
   );
 };
-export  default LoginPage
+export default LoginPage;

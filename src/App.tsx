@@ -18,8 +18,6 @@ function App() {
     <>
       <AuthProvider>
         <Header />
-
-        {/* інші компоненти */}
       </AuthProvider>
       <Routes>
         <Route path="/" element={<Layout />}>

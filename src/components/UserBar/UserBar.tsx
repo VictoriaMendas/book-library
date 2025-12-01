@@ -1,8 +1,9 @@
 // UserBar.tsx
 import { useSelector } from "react-redux";
+import type { RootState } from "../../store";
 
 const UserBar = () => {
-  const user = useSelector((state: any) => state.auth.user);
+  const user = useSelector((state: RootState) => state.auth.user);
 
   return <div>{user?.name ?? "Guest"}</div>;
 };
