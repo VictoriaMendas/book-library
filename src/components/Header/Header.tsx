@@ -1,10 +1,16 @@
 // UserBar.tsx
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
-const UserBar = () => {
-  const user = useSelector((state: any) => state.auth.user);
+import Logo from "../Logo/Logo";
 
-  return <div>{user?.name ?? "Guest"}</div>;
+const HeaderBar = () => {
+  // const user = useSelector((state: any) => state.auth.user);
+
+  return (
+    <div>
+      <Logo />
+    </div>
+  );
 };
 
-export default UserBar;
+export default HeaderBar;

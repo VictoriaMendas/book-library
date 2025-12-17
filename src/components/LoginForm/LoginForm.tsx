@@ -17,8 +17,6 @@ const loginSchema = yup.object<LoginFormData>().shape({
   password: yup
     .string()
     .min(7, "Password too short")
-    .matches(/[A-Z]/)
-    .matches(/[0-9]/)
     .required("Password is required"),
 });
 const LoginForm: React.FC = () => {
@@ -42,7 +40,7 @@ const LoginForm: React.FC = () => {
         <input type="password" {...register("password")} />
       </label>
       <button type="submit" disabled={isSubmitting}>
-        Registration
+        Login
       </button>
     </form>
   );

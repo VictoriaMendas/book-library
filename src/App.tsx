@@ -21,11 +21,12 @@ function App() {
       </AuthProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/recommended" element={<RecommendedPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/reading" element={<ReadingPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

@@ -21,8 +21,6 @@ const registrationSchema = yup.object<RegistrationFormData>().shape({
   password: yup
     .string()
     .min(7, "Password too short")
-    .matches(/[A-Z]/)
-    .matches(/[0-9]/)
     .required("Password is required"),
 });
 const RegisterForm: React.FC = () => {
@@ -37,6 +35,7 @@ const RegisterForm: React.FC = () => {
   const onSubmit: SubmitHandler<RegistrationFormData> = (data) => {
     console.log(data);
   };
+  // Чи треба використати хукАйді для генерування унікального айді на інпути?
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>
