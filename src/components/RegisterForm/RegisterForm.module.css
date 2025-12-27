@@ -1,0 +1,84 @@
+.mainTitle {
+}
+
+.greyTitle {
+  color: #e3e3e380;
+}
+.formContainer {
+  background-color: #1f1f1f;
+  border-radius: 30px;
+  padding: 164px 92px 40px 64px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.formRegister {
+  padding: 126px 0 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 14px;
+
+  width: 472px;
+  height: 50px;
+  background-color: #262626;
+  color: #f9f9f9;
+  gap: 10px;
+  border-radius: 12px;
+  border: none;
+}
+.input::placeholder {
+  padding-left: 14px;
+}
+.button {
+  font-family: var(--font-family);
+  border-radius: 30px;
+  border: 1px solid #f9f9f933;
+  height: 52px;
+  background: #141414;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #f9f9f9;
+  cursor: pointer;
+  width: 225px;
+  margin-top: 10px;
+}
+.button:hover,
+.button:focus {
+  background-color: #f9f9f9;
+  color: #1f1f1f;
+}
+.description {
+  font-family: Gilroy;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #686868;
+  margin: 0 auto;
+  text-decoration: underline;
+}
+.description:hover,
+.description:focus {
+  color: #f9f9f9;
+}
+.link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--main-text);
+}
+.buttonLink {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
