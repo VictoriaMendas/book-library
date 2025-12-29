@@ -3,6 +3,10 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import s from "./RegisterForm.module.css";
 import { Link } from "react-router-dom";
+
+import { registerUser } from "../../redux/auth/operations";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
 export interface RegistrationFormData {
   name: string;
   email: string;
@@ -26,6 +30,8 @@ const registrationSchema = yup.object<RegistrationFormData>().shape({
     .required("Password is required"),
 });
 const RegisterForm: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const {
     register,
     handleSubmit,
@@ -35,9 +41,9 @@ const RegisterForm: React.FC = () => {
     defaultValues: { email: "", name: "", password: "" },
   });
   const onSubmit: SubmitHandler<RegistrationFormData> = (data) => {
-    console.log(data);
+    dispatch(registerUser(data));
   };
-  // Чи треба використати хукАйді для генерування унікального айді на інпути?
+
   return (
     <div className={s.formContainer}>
       <h1 className={s.mainTitle}>

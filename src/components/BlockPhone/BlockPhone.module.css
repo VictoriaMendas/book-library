@@ -1,0 +1,17 @@
+.phoneDiv {
+  border-radius: 30px;
+  width: 343px;
+  height: 415px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px 32px;
+  background-color: var(--accent);
+
+  background-repeat: no-repeat;
+  background-position: 50% 50px;
+  background-size: 262px 335px;
+  background-image: image-set(
+    url("/img/iPhone\ 15\ Black\(1x-laptop\).jpg") 1x,
+    url("/img/iPhone\ 15\ Black\ \(2x-laptop\).jpg") 2x
+  );
+}

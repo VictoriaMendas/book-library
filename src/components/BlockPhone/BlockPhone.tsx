@@ -1,6 +1,8 @@
+import s from "./BlockPhone.module.css";
+
 const BlockPhone = () => {
   return (
-    <div>
+    <div className={s.phoneDiv}>
       {/*картинку розташувати як фон в стилях або контентом але треба абсолютне позиція */}
     </div>
   );
