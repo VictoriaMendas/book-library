@@ -28,8 +28,6 @@ const persistConfig: PersistConfig<AuthState> = {
 
 const persistedReducer = persistReducer<AuthState>(persistConfig, authReducer);
 
-// ---------------------- STORE ----------------------
-
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,

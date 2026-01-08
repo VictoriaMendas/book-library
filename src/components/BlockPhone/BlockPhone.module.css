@@ -1,17 +1,15 @@
 .phoneDiv {
   border-radius: 30px;
-  width: 343px;
-  height: 415px;
-  display: flex;
-  flex-direction: column;
-  padding: 24px 16px 32px;
-  background-color: var(--accent);
-
+  width: 600px;
+  height: 834px;
+  flex-shrink: 0;
+  background-color: #1f1f1f;
+  margin-left: 16px;
+  overflow: hidden;
   background-repeat: no-repeat;
-  background-position: 50% 50px;
-  background-size: 262px 335px;
+  background-position: center bottom;
   background-image: image-set(
-    url("/img/iPhone\ 15\ Black\(1x-laptop\).jpg") 1x,
-    url("/img/iPhone\ 15\ Black\ \(2x-laptop\).jpg") 2x
+    url("/img/iPhone-1x-desktop.png") 1x,
+    url("/img/iPhone-2x-desktop.png") 2x
   );
 }

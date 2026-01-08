@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { registerUser } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
+import Logo from "../Logo/Logo";
 export interface RegistrationFormData {
   name: string;
   email: string;
@@ -43,14 +44,20 @@ const RegisterForm: React.FC = () => {
   const onSubmit: SubmitHandler<RegistrationFormData> = (data) => {
     dispatch(registerUser(data));
   };
-
+  // дів зробити в середину діву вкладати лєйбл і після лєйбл сусідом інпут.Не вкладений інпут в лєйбл.І тоді на дів задати позішн релатів
+  // а на лєйбл позішн абсол.т і 2 точки позиціювання топ і лєфт
   return (
     <div className={s.formContainer}>
+      <Logo />
       <h1 className={s.mainTitle}>
         Expend your mind, reading <span className={s.greyTitle}>a book</span>
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className={s.formRegister}>
-        <label>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={s.formRegister}
+        autoComplete="off"
+      >
+        <label className={s.labelInputForm}>
           <input
             type="text"
             {...register("name")}
@@ -63,7 +70,7 @@ const RegisterForm: React.FC = () => {
             </p>
           )}
         </label>
-        <label>
+        <label className={s.labelInputForm}>
           <input
             type="email"
             {...register("email")}
@@ -76,13 +83,16 @@ const RegisterForm: React.FC = () => {
             </p>
           )}
         </label>
-        <label>
+        <label className={s.labelInputLast}>
           <input
             type="password"
             {...register("password")}
             className={s.input}
             placeholder="Password:"
           />
+          <svg width="20" height="20" className={s.iconInput}>
+            <use href="/public/img/sprite.svg#icon-eye"></use>
+          </svg>
           {errors.password && (
             <p style={{ color: "red", fontSize: "12px" }}>
               {errors.password.message}

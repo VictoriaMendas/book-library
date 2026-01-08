@@ -1,0 +1,13 @@
+.logoContainer {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #f9f9f9;
+}
+.logoIcon {
+  margin-right: 4px;
+  display: inline-block;
+}

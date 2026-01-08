@@ -1,4 +1,6 @@
 .mainTitle {
+  max-width: 370px;
+  margin-top: 107px;
 }
 
 .greyTitle {
@@ -7,23 +9,28 @@
 .formContainer {
   background-color: #1f1f1f;
   border-radius: 30px;
-  padding: 164px 92px 40px 64px;
-  display: flex;
+  padding: 40px 92px 40px 64px;
+
   flex-wrap: wrap;
 }
 .formRegister {
-  padding: 126px 0 170px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+.labelInputForm {
+  margin-bottom: 14px;
+  display: block;
+}
+.labelInputLast {
+  margin-bottom: 82px;
+  display: block;
+  position: relative;
+}
+.iconInput {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .input {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 14px;
-
   width: 472px;
   height: 50px;
   background-color: #262626;
@@ -31,6 +38,7 @@
   gap: 10px;
   border-radius: 12px;
   border: none;
+  padding-left: 14px;
 }
 .input::placeholder {
   padding-left: 14px;
