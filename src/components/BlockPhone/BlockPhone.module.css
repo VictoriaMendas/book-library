@@ -13,3 +13,14 @@
     url("/img/iPhone-2x-desktop.png") 2x
   );
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .phoneDiv {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .phoneDiv {
+    display: flex;
+    flex-direction: column;
+  }
+}

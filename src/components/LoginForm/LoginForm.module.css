@@ -1,23 +1,33 @@
+.mainTitle {
+  max-width: 370px;
+  margin-top: 107px;
+}
+.greyTitle {
+  color: #e3e3e380;
+}
 .formContainer {
   background-color: #1f1f1f;
   border-radius: 30px;
-  padding: 164px 92px 40px 64px;
-  display: flex;
+  padding: 40px 92px 40px 64px;
   flex-wrap: wrap;
 }
-.formLogin {
-  padding: 126px 0 170px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.labelInputForm {
+  margin-bottom: 14px;
+  display: block;
+}
+.labelInputLast {
+  margin-bottom: 146px;
+  display: block;
+  position: relative;
+}
+
+.iconInput {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .input {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 14px;
-
   width: 472px;
   height: 50px;
   background-color: #262626;
@@ -25,14 +35,15 @@
   gap: 10px;
   border-radius: 12px;
   border: none;
+  padding-left: 14px;
 }
 .input::placeholder {
   padding-left: 14px;
 }
 .button {
-  font-family: var(--font-family);
+  font-family: Gilroy;
   border-radius: 30px;
-  border: 1px solid #f9f9f933;
+
   height: 52px;
   background: #141414;
   border: none;
@@ -40,11 +51,10 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.01em;
-  text-align: center;
+
   color: #f9f9f9;
   cursor: pointer;
-  width: 225px;
-  margin-top: 10px;
+  width: 166px;
 }
 .button:hover,
 .button:focus {

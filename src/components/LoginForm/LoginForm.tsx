@@ -3,6 +3,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 import s from "./LoginForm.module.css";
+import Logo from "../Logo/Logo";
 interface LoginFormData {
   email: string;
   password: string;
@@ -35,11 +36,12 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className={s.formContainer}>
+      <Logo />
       <h1 className={s.mainTitle}>
         Expend your mind, reading <span className={s.greyTitle}>a book</span>
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className={s.formLogin}>
-        <label>
+        <label className={s.labelInputForm}>
           <input
             type="email"
             {...register("email")}
@@ -52,13 +54,16 @@ const LoginForm: React.FC = () => {
             </p>
           )}
         </label>
-        <label>
+        <label className={s.labelInputLast}>
           <input
             type="password"
             {...register("password")}
             className={s.input}
             placeholder="Password:"
           />
+          <svg width="20" height="20" className={s.iconInput}>
+            <use href="/public/img/sprite.svg#icon-eye"></use>
+          </svg>
           {errors.password && (
             <p style={{ color: "red", fontSize: "12px" }}>
               {errors.password.message}
@@ -67,7 +72,7 @@ const LoginForm: React.FC = () => {
         </label>
         <div className={s.buttonLink}>
           <button type="submit" disabled={isSubmitting} className={s.button}>
-            Registration
+            Log In
           </button>
           <Link to={"/register"} className={s.link}>
             <p className={s.description}> Dont have an account?&nbsp;</p>
@@ -76,18 +81,5 @@ const LoginForm: React.FC = () => {
       </form>
     </div>
   );
-  // (
-  //   <form onSubmit={handleSubmit(onSubmit)}>
-  //     <label>
-  //       <input type="email" {...register("email")} />
-  //     </label>
-  //     <label>
-  //       <input type="password" {...register("password")} />
-  //     </label>
-  //     <button type="submit" disabled={isSubmitting}>
-  //       Login
-  //     </button>
-  //   </form>
-  // );
 };
 export default LoginForm;
