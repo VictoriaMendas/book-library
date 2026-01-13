@@ -1,10 +1,18 @@
-.blockContainer {
+.containerRegister {
   display: flex;
-  flex-direction: row;
 }
-@media screen and (max-width: 768px) {
-  .blockContainer {
-    display: flex;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .formContainer {
+    padding: 40px 196px 214px 64px;
+  }
+}
+@media (max-width: 767px) {
+  .containerRegister {
     flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    width: 335px;
+    height: 411px;
   }
 }

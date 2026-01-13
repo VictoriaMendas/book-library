@@ -41,7 +41,6 @@
   padding-left: 14px;
 }
 .button {
-  font-family: Gilroy;
   border-radius: 30px;
 
   height: 52px;
@@ -62,7 +61,6 @@
   color: #1f1f1f;
 }
 .description {
-  font-family: Gilroy;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
@@ -85,4 +83,18 @@
   display: flex;
   align-items: center;
   gap: 20px;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .formContainer {
+    padding: 40px 196px 214px 64px;
+  }
+}
+@media (max-width: 767px) {
+  .formContainer {
+    padding: 20px 20px 40px 20px;
+  }
+  .input {
+    width: 295px;
+    height: 44px;
+  }
 }

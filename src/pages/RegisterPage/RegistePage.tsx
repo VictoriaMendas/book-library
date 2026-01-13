@@ -4,7 +4,7 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import s from "./RegisterPage.module.css";
 const RegisterPage: React.FC = () => {
   return (
-    <div className={s.blockContainer}>
+    <div className={s.containerRegister}>
       <RegisterForm />
       <BlockPhone />
     </div>

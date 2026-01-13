@@ -7,7 +7,18 @@
   text-transform: uppercase;
   color: #f9f9f9;
 }
+.logoText {
+  display: inline-block;
+}
 .logoIcon {
   margin-right: 4px;
   display: inline-block;
+}
+@media screen and (max-width: 425px) {
+  .logoText {
+    display: none;
+  }
+  .logoIcon {
+    padding-top: 20px;
+  }
 }
