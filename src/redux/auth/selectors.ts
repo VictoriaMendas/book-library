@@ -1,9 +1,9 @@
-// import { useSelector } from "react-redux";
+// features/auth/selectors.ts
+import type { RootState } from "../../redux/store";
 
-// export const selectIsLoading = useSelector((state) => state.books.isLoading);
-// export const selectIsError = useSelector((state) => state.books.isError);
-// export const selectUser = useSelector((state) => state.auth.user);
-// export const selectIsLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+export const selectUser = (state: RootState) => state.auth.user;
+export const selectIsLoggedIn = (state: RootState) => state.auth.isLoginUser;
+export const selectIsAuthLoading = (state: RootState) => state.auth.isLoading;
 // export const selectIsRefreshing = useSelector(
 //   (state) => state.auth.isRefreshing
 // );

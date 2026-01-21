@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { registerUser, type UserResponse } from "./operations";
+import { loginUser, registerUser, type UserResponse } from "./operations";
+
 
 export interface AuthUser {
   name: string;
@@ -36,7 +37,7 @@ const handlePending = (state: AuthState) => {
 
 const handleRejected = (
   state: AuthState,
-  action: PayloadAction<RejectError>
+  action: PayloadAction<RejectError>,
 ) => {
   state.isLoading = false;
   state.error = action.payload ?? "Unknown error";
@@ -50,28 +51,35 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // --- signup.pending ---
       .addCase(registerUser.pending, handlePending)
-
-      // --- signup.fulfilled ---
       .addCase(
         registerUser.fulfilled,
         (state, action: PayloadAction<UserResponse>) => {
           state.isLoading = false;
           state.error = null;
-
           state.user = {
             name: action.payload.name,
             email: action.payload.email,
           };
-
           state.token = action.payload.token;
           state.refreshToken = action.payload.refreshToken;
-        }
+        },
       )
 
-      // --- signup.rejected ---
-      .addCase(registerUser.rejected, handleRejected);
+      .addCase(registerUser.rejected, handleRejected)
+      .addCase(
+       loginUser.fulfilled,
+        (state, action: PayloadAction<UserResponse>) => {
+          state.isLoading = false;
+          state.error = null;
+          state.user = {
+            name: action.payload.name,
+            email: action.payload.email,
+          };
+          state.token = action.payload.token;
+          state.refreshToken = action.payload.refreshToken;
+        },
+      );
   },
 });
 

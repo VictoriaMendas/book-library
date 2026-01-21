@@ -23,7 +23,7 @@ const persistConfig: PersistConfig<AuthState> = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["token", "refreshToken"],
+  whitelist: ["token", "refreshToken", "auth"],
 };
 
 const persistedReducer = persistReducer<AuthState>(persistConfig, authReducer);
