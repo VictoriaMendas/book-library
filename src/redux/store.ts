@@ -16,6 +16,7 @@ import {
 
 import { authReducer } from "./auth/slice";
 import type { AuthState } from "./auth/slice";
+import { useDispatch } from "react-redux";
 
 // ---------------------- PERSIST CONFIG ----------------------
 
@@ -41,10 +42,11 @@ export const store = configureStore({
 });
 
 // ---------------------- TYPES ----------------------
+// export const useAppSelector: TypedUseSelectorHook<RootState> = useAppSelector;
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
 
-// ---------------------- PERSISTOR ----------------------
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 
 export const persistor = persistStore(store);

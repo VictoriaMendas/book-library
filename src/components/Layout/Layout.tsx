@@ -1,13 +1,20 @@
-import { Suspense } from "react";
+// import { Suspense } from "react";
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+import { selectAccessToken } from "../../redux/auth/selectors";
+// import RecommendedPage from "../../pages/RecommendedPage/RecommendedPage";
+// import LoginPage from "../../pages/LoginPage/LoginPage";
 
 export const Layout: React.FC = () => {
+  const accessToken = useSelector(selectAccessToken);
+
+  const isAuthenticated: boolean = Boolean(accessToken);
   return (
     <>
-      <p>Layout</p>
-      <Suspense>
-        <Outlet />
-      </Suspense>
+      {isAuthenticated ? <Outlet /> : <Outlet />}
+      {/* <Suspense>
+      
+      </Suspense> */}
     </>
   );
 };

@@ -1,16 +1,3 @@
-// src/redux/operations.js
-
-// export const addBook = createAsyncThunk(
-//   "books/addBook",
-//   async (text, thunkAPI) => {
-//     try {
-//       const response = await axios.post("/books", { text });
-//       return response.data;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 
@@ -19,6 +6,8 @@ interface UserCredentials {
   name: string;
   email: string;
   password: string;
+  accessToken: string | null;
+  refreshToken: string | null;
 }
 
 export interface UserResponse {
@@ -28,7 +17,6 @@ export interface UserResponse {
   name: string;
 }
 
-// Тип помилок
 type RejectError = string;
 axios.defaults.baseURL = "https://readjourney.b.goit.study/api";
 const token = {
@@ -48,8 +36,9 @@ export const registerUser = createAsyncThunk<
   try {
     const { data } = await axios.post<UserResponse>(
       "/users/signup",
-      credentials
+      credentials,
     );
+    console.log(data);
     token.set(data.token);
     return data;
   } catch (e) {
@@ -67,7 +56,7 @@ export const loginUser = createAsyncThunk<
   try {
     const { data } = await axios.post<UserResponse>(
       "/users/signin",
-      credentials
+      credentials,
     );
     token.set(data.token);
     return data;

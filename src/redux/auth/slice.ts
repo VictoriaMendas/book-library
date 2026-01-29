@@ -1,7 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { loginUser, registerUser, type UserResponse } from "./operations";
 
-
 export interface AuthUser {
   name: string;
   email: string;
@@ -67,8 +66,9 @@ const authSlice = createSlice({
       )
 
       .addCase(registerUser.rejected, handleRejected)
+      .addCase(loginUser.pending, handlePending)
       .addCase(
-       loginUser.fulfilled,
+        loginUser.fulfilled,
         (state, action: PayloadAction<UserResponse>) => {
           state.isLoading = false;
           state.error = null;
@@ -79,7 +79,8 @@ const authSlice = createSlice({
           state.token = action.payload.token;
           state.refreshToken = action.payload.refreshToken;
         },
-      );
+      )
+      .addCase(loginUser.rejected, handleRejected);
   },
 });
 
