@@ -6,8 +6,6 @@ interface UserCredentials {
   name: string;
   email: string;
   password: string;
-  accessToken: string | null;
-  refreshToken: string | null;
 }
 
 export interface UserResponse {
@@ -27,6 +25,7 @@ const token = {
     axios.defaults.headers.common.Authorization = "";
   },
 };
+
 // ---------- REGISTER USER ----------
 export const registerUser = createAsyncThunk<
   UserResponse, // тип повернення (fulfilled)

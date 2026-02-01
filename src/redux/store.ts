@@ -42,7 +42,6 @@ export const store = configureStore({
 });
 
 // ---------------------- TYPES ----------------------
-// export const useAppSelector: TypedUseSelectorHook<RootState> = useAppSelector;
 
 export type RootState = ReturnType<typeof store.getState>;
 

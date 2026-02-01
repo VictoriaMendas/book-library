@@ -8,6 +8,8 @@ import { registerUser } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import Logo from "../Logo/Logo";
+import { useState } from "react";
+
 export interface RegistrationFormData {
   name: string;
   email: string;
@@ -32,20 +34,27 @@ const registrationSchema = yup.object<RegistrationFormData>().shape({
 });
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<RegistrationFormData>({
     resolver: yupResolver(registrationSchema),
-    defaultValues: { email: "", name: "", password: "" },
+    defaultValues: {
+      email: "",
+      name: "",
+      password: "",
+    },
   });
-  const onSubmit: SubmitHandler<RegistrationFormData> = (data) => {
-    dispatch(registerUser(data));
+  const onSubmit: SubmitHandler<RegistrationFormData> = ({
+    name,
+    email,
+    password,
+  }) => {
+    dispatch(registerUser({ name, email, password }));
   };
-  // дів зробити в середину діву вкладати лєйбл і після лєйбл сусідом інпут.Не вкладений інпут в лєйбл.І тоді на дів задати позішн релатів
-  // а на лєйбл позішн абсол.т і 2 точки позиціювання топ і лєфт
+
   return (
     <div className={s.formContainer}>
       <Logo />
@@ -85,14 +94,31 @@ const RegisterForm: React.FC = () => {
         </label>
         <label className={s.labelInputLast}>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             {...register("password")}
             className={s.input}
             placeholder="Password:"
           />
-          <svg width="20" height="20" className={s.iconInput}>
-            <use href="/public/img/sprite.svg#icon-eye"></use>
-          </svg>
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            <svg width="20" height="20">
+              {showPassword ? (
+                <use href="public/img/sprite.svg#icon-eye" />
+              ) : (
+                <use href="public/img/sprite.svg#icon-eye-off" />
+              )}
+            </svg>
+          </button>
+          {/* <svg
+            width="20"
+            height="20"
+            className={s.iconInput}
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            <use href="/public/img/sprite.svg#icon-eye-off"></use>
+          </svg> */}
           {errors.password && (
             <p style={{ color: "red", fontSize: "12px" }}>
               {errors.password.message}
